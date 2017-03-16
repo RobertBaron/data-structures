@@ -13,7 +13,24 @@ describe('Test Single List functionallity', function () {
     expect(singlyList.add(1).data).equal(1);
     // Check the length of the list
     expect(singlyList.getLength()).equal(1);
+  });
 
+  it('should throw error accessing invalid position', function() {
+    // List has one element
+    expect(singlyList.getLength()).equal(1);
+    // -1 :(
+    expect(function(){
+      singlyList.searchAt(-1)
+    }).to.throw('Invalid position for list');
+    // Exceeds size
+    expect(function(){
+      singlyList.searchAt(3)
+    }).to.throw('Invalid position for list');
+  });
+
+  it('should search by position', function() {
+    expect(singlyList.getLength()).equal(1);
+    expect(singlyList.searchAt(1)).to.have.property('data');
   });
 
 });

@@ -32,4 +32,20 @@ export default class Singlylist {
     return this._length;
   }
 
+  searchAt(position) {
+    let current = this.head;
+    let count = 1;
+
+    if (position > this._length || position < 0) {
+      throw Error('Invalid position for list');
+    }
+
+    while(count < position) {
+      current = current.next;
+      count++;
+    }
+
+    return current;
+  }
+
 }
