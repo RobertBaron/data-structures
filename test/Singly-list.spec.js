@@ -30,7 +30,23 @@ describe('Test Single List functionallity', function () {
 
   it('should search by position', function() {
     expect(singlyList.getLength()).equal(1);
-    expect(singlyList.searchAt(1)).to.have.property('data');
+    expect(singlyList.searchAt(1)).to.have.property('data', 1);
+  });
+
+  it('should remove by position', function() {
+    expect(singlyList.remove(1)).to.have.property('data', 1);
+    expect(singlyList.getLength()).equal(0);
+    expect(function(){
+      singlyList.remove(1)
+    }).to.throw('Invalid position for list');
+
+    singlyList.add(1);
+    singlyList.add(2);
+    singlyList.add(3);
+
+    expect(singlyList.getLength()).equal(3);
+    expect(singlyList.remove(2)).to.have.property('data', 2);
+    expect(singlyList.getLength()).equal(2);
   });
 
 });

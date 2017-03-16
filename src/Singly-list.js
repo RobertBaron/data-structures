@@ -48,4 +48,38 @@ export default class Singlylist {
     return current;
   }
 
+  remove(position) {
+    let current = this.head;
+    let deleted = null;
+    let prevNode = null;
+    let count = 1;
+
+    if (position > this._length || position < 0) {
+      throw Error('Invalid position for list');
+    }
+
+    // we are removing the first element
+    if (position === 1) {
+      deleted = this.head;
+      this.head = current.next;
+      this._length--;
+
+      current = null;
+      return deleted;
+    }
+
+    while(count < position) {
+      prevNode = current;
+      current = current.next;
+      count++;
+    }
+
+    prevNode.next = current.next;
+    deleted = current;
+    this._length--;
+
+    current = null;
+    return deleted;
+  }
+
 }
