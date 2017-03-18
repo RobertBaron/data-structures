@@ -7,6 +7,11 @@ describe('Test Single List functionallity', function () {
     singlyList = new SinglyList();
   });
 
+  it('Should initialize correctly', function(){
+    expect(singlyList.getLength()).equal(0);
+    expect(singlyList.head).equal(null);
+  });
+
   it('should add new elements', function () {
     expect(singlyList.getLength()).equal(0);
     // Add the element that returns a node
