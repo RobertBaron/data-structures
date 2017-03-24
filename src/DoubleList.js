@@ -66,8 +66,7 @@ export default class DoubleList {
     // We are removing the tail
     if(position === this._length) {
       let deleted = this.tail;
-      let previous = this.tail.previous;
-      this.tail = previous;
+      this.tail = this.tail.previous;
       this.tail.next = null;
       this._length--;
 
