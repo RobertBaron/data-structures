@@ -1,6 +1,6 @@
-import SinglyList from '../src/Singly-list';
+import SinglyList from '../src/SinglyList';
 
-describe('Test Single List functionallity', function () {
+describe('Single List', function () {
 
   let singlyList;
   before(function () {
@@ -38,12 +38,16 @@ describe('Test Single List functionallity', function () {
     expect(singlyList.searchAt(1)).to.have.property('data', 1);
   });
 
-  it('should remove by position', function() {
+  it('should remove head', function() {
     expect(singlyList.remove(1)).to.have.property('data', 1);
     expect(singlyList.getLength()).equal(0);
     expect(function(){
       singlyList.remove(1)
     }).to.throw('Invalid position for list');
+  });
+
+  it('should remove in center', function() {
+    expect(singlyList.getLength()).equal(0);
 
     singlyList.add(1);
     singlyList.add(2);
@@ -52,6 +56,11 @@ describe('Test Single List functionallity', function () {
     expect(singlyList.getLength()).equal(3);
     expect(singlyList.remove(2)).to.have.property('data', 2);
     expect(singlyList.getLength()).equal(2);
+  });
+
+  it('should remove at end', function() {
+    expect(singlyList.remove(2)).to.have.property('data', 3);
+    expect(singlyList.getLength()).equal(1);
   });
 
 });

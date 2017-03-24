@@ -33,12 +33,13 @@ export default class Singlylist {
   }
 
   searchAt(position) {
-    let current = this.head;
-    let count = 1;
 
     if (position > this._length || position < 0) {
       throw Error('Invalid position for list');
     }
+
+    let current = this.head;
+    let count = 1;
 
     while(count < position) {
       current = current.next;
@@ -49,14 +50,15 @@ export default class Singlylist {
   }
 
   remove(position) {
-    let current = this.head;
-    let deleted = null;
-    let prevNode = null;
-    let count = 1;
 
     if (position > this._length || position < 0) {
       throw Error('Invalid position for list');
     }
+
+    let current = this.head;
+    let deleted = null;
+    let prevNode = null;
+    let count = 1;
 
     // we are removing the first element
     if (position === 1) {
